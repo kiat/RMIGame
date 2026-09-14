@@ -29,6 +29,9 @@
 			         <version>3.14.0</version>
 			</plugin>
 
+
+
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jxr-plugin</artifactId>
@@ -83,6 +86,43 @@
 		  </dependencies>
 		</plugin>
 
+
+
+        <plugin>
+
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>1.3</version>
+
+            <executions>
+                <execution>
+                    <id>server</id>
+                    <goals>
+                        <goal>java</goal>
+                    </goals>
+                    <configuration>
+                        <mainClass>edu.utexas.cs.cs378.GuessServer</mainClass>
+                    </configuration>
+                </execution>
+                <execution>
+                    <id>client</id>
+                    <goals>
+                        <goal>java</goal>
+                    </goals>
+                    <configuration>
+                        <mainClass>edu.utexas.cs.cs378.GuessClient</mainClass>
+                    </configuration>
+                </execution>
+            </executions>
+
+            <configuration>
+                <includeProjectDependencies>true</includeProjectDependencies>
+                <includePluginDependencies>true</includePluginDependencies>
+                <!--<killAfter>-1</killAfter> -->
+                <!-- <mainClass>edu.utexas.cs.cs378.MainServer</mainClass> -->
+                <cleanupDaemonThreads>false</cleanupDaemonThreads>
+            </configuration>
+        </plugin>
 
 
 		<plugin>

@@ -27,13 +27,16 @@ mvn clean compile assembly:single
 ```
 
 
-# How to run
+# How to run the Server
 
 ```bash
-mvn clean compile  exec:java -Dexec.args="WikipediaPagesOneDocPerLine.txt.bz2 300"
+mvn clean  compile  exec:java@server -Dexec.args="127.0.0.1  1099"
 ```
 
+# How to run the Client
 
 ```bash
-mvn clean compile  exec:java -Dexec.executable="edu.utexas.cs.cs378.Main"  -Dexec.args="WikipediaPagesOneDocPerLine.txt.bz2 500"
+mvn clean  compile  exec:java@client  -Dexec.args="127.0.0.1 1099"
 ```
+
+Change the localhost with the local ip address of your cloud machine. 
